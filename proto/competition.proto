@@ -15,6 +15,16 @@ message SubmissionInfo {
 
 message SubmissionResult {}
 
+message TeamMembersRequest {
+  string repo = 1;
+}
+
+message TeamMembersResponse {
+  repeated string members = 1;
+  string error_message = 2;
+}
+
 service Competition {
-  rpc SetSubmissionInfo(SubmissionInfo) returns (SubmissionResult) {}
+  rpc SetSubmissionInfo(SubmissionInfo) returns (SubmissionResult);
+  rpc GetTeamMembers (TeamMembersRequest) returns (TeamMembersResponse);
 }

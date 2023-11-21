@@ -10,4 +10,5 @@ type SubmissionInfo struct {
 
 type CompetitionService interface {
 	SetSubmissionInfo(string, *SubmissionInfo) error
+	GetTeamMembers(repo string) (members []string, err error)
 }

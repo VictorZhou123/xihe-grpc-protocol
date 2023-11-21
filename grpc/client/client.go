@@ -243,3 +243,16 @@ func (c *CompetitionClient) SetSubmissionInfo(
 
 	return err
 }
+
+func (c *CompetitionClient) GetTeamMembers(repo string) (
+	members []string, err error,
+) {
+	resp, err := c.cli.GetTeamMembers(
+		context.Background(),
+		&protocol.TeamMembersRequest{
+			Repo: repo,
+		},
+	)
+
+	return resp.Members, err
+}
